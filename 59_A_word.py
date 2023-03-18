@@ -1,4 +1,4 @@
-/*
+'''
 A. Word
 time limit per test
 2 seconds
@@ -16,49 +16,22 @@ The first line contains a word s — it consists of uppercase and lowercase Lati
 Output
 
 Print the corrected word s. If the given word s has strictly more uppercase letters, make the word written in the uppercase register, otherwise - in the lowercase one.
-*/
 
-#include<bits/stdc++.h>
-using namespace std;
-char word[100];
+'''
 
-void convert_upper(char a[]) {
-    for(int i=0; i < 100; i++) {
-        if(a[i] > 96) {
-        a[i] = a[i] - 32;
-       }
-    }
-}
+word = input()
 
-void convert_lower(char a[]) {
-    for(int i=0; i < 100; i++) {
-       if(a[i] < 96) {
-        a[i] = a[i] + 32;
-       }
-    }
-}
+upper = 0
+lower = 0
 
-int main() {
-    
-    scanf("%s",&word);
-    int upper{0};
-    int lower{0};
+for character in word :
+    if character.isupper() == True :
+        upper = upper + 1
+    else :
+        lower = lower + 1
 
-    for(int i=0; i < 100; i++) {
-        if(word[i] < 96) {
-            upper++;
-        }
-        else {
-            lower++;
-        }
-    }
+if upper > lower :
+    print(word.upper())
+else :
+    print(word.lower())
 
-    if (upper > lower) {
-        convert_upper(word);
-    }
-    else {
-        convert_lower(word);
-    }
-
-    cout << word;
-}
